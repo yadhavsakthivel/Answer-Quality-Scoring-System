@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #FBF9F5;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased min-h-screen;
+    color: #111827;
+  }
+
+  /* Focus visible accessibility outline */
+  *:focus-visible {
+    outline: 2px solid #EA580C;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Editorial writing workspace textarea */
+  .field-textarea {
+    @apply w-full border bg-white px-4 py-3.5
+           text-ink placeholder-ink-faint text-base leading-relaxed
+           focus:outline-none focus:border-coral focus:ring-2 focus:ring-coral/20
+           transition-all duration-150 rounded-lg shadow-sm font-sans;
+    border-color: #E5E0D8;
+  }
+
+  /* High impact primary CTA button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-3
+           bg-coral hover:bg-coral-hover active:bg-coral-hover
+           text-white font-bold px-8 py-4 text-base tracking-wider uppercase
+           transition-all duration-200 rounded-lg shadow-sm cursor-pointer
+           focus:outline-none focus:ring-2 focus:ring-coral focus:ring-offset-2 focus:ring-offset-paper
+           disabled:opacity-60 disabled:cursor-not-allowed disabled:pointer-events-none;
+  }
+
+  /* Section cards and containers */
+  .workspace-card {
+    @apply bg-white border rounded-xl p-6 shadow-sm transition-shadow duration-200;
+    border-color: #E5E0D8;
+  }
+
+  /* Section header badge */
+  .section-label {
+    @apply text-xs font-extrabold uppercase tracking-widest text-ink-muted;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #FBF9F5; }
+::-webkit-scrollbar-thumb { @apply bg-paper-border rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-ink-faint; }
